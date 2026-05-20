@@ -1,0 +1,101 @@
+{
+  "info": {
+    "_postman_id": "f12e1e33-6f9a-4d97-ac07-4634807d0c8e",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55005195",
+    "_collection_link": "https://go.postman.co/collection/55005195-f12e1e33-6f9a-4d97-ac07-4634807d0c8e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус відповіді 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Перевірка варіанту student_id = 16\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.student_id).to.eql(16);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8016/api/users/1601",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8016",
+          "path": [
+            "api",
+            "users",
+            "1601"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус відповіді 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Перевірка варіанту student_id = 16\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.student_id).to.eql(16);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1601,\n  \"content\": \"Пост створено!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9016/api/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9016",
+          "path": [
+            "api",
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

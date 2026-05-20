@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  user-service-16:
+    build: ./user-service
+    container_name: user-service-16
+    command: uvicorn main:app --host 0.0.0.0 --port 8016
+    ports:
+      - "8016:8016"
+    environment:
+      - STUDENT_N=16
+
+  post-service-16:
+    build: ./post-service
+    container_name: post-service-16
+    command: uvicorn main:app --host 0.0.0.0 --port 9016
+    ports:
+      - "9016:9016"
+    environment:
+      - STUDENT_N=16
+      - USER_SERVICE_URL=http://user-service-16:8016
